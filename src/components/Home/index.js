@@ -1,5 +1,6 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import Header from "../Header";
+import Movimento from "../Movimento";
 import Total from "../Total";
 
 const movimentos = [
@@ -23,6 +24,13 @@ const movimentos = [
         value: '7.000,00',
         date: '28/02/2023',
         tipo: 1 //ganho
+    },   
+    {
+        id: 4,
+        label: 'Internet',
+        value: '150,00',
+        date: '15/02/2023',
+        tipo: 0 //ganho
     },
 ]
 
@@ -31,7 +39,7 @@ const movimentos = [
 export default function Home() {
     return (
         <View >
-            <Header nomeUsuario='Programação Mobile'/>
+            <Header nomeUsuario='Aula de 08/03/2023'/>
             <Total saldo="4.348,57" despesa="1.200,45" />
 
             <Text style={styles.titulo}>Últimas Movimentações</Text>
@@ -39,7 +47,7 @@ export default function Home() {
                 data={movimentos}
                 keyExtractor={(item) => String(item.id)}
                 showsVerticalScrollIndicator={ false}
-                renderItem={({item}) => <Text>{item.label}</Text>}
+                renderItem={({item}) => <Movimento dado={item}/>}
             />
         </View>
     )
