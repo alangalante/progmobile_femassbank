@@ -11,9 +11,12 @@ export default function Home() {
     const [movimentos, setMovimentos] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:8080/')
+        axios.get('http://192.168.1.101:8080/')
         .then(res => {
             setMovimentos(res.data)
+        })
+        .catch(function (error) {
+            console.log(error);
         })
     })
 
